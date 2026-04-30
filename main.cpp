@@ -23,33 +23,33 @@ int main() {
 
     do {
         cout << "\n===== PROYECTO PILAS =====" << endl;
-        cout << "1. Ingresar expresion infija" << endl;
-        cout << "2. Convertir a notacion postfija" << endl;
-        cout << "3. Evaluar expresion postfija" << endl;
+        cout << "1. Ingresar expresión infija" << endl;
+        cout << "2. Convertir a notación postfija" << endl;
+        cout << "3. Evaluar expresión postfija" << endl;
         cout << "4. Mostrar resultados" << endl;
         cout << "5. Salir" << endl;
-        cout << "Seleccione una opcion: ";
+        cout << "Seleccione una opcin: ";
         cin >> opcion;
 
         switch (opcion) {
             case 1:
-                cout << "Ingrese la expresion infija: ";
+                cout << "Ingrese la expresión infija: ";
                 cin.ignore();
                 getline(cin, infija);
-                cout << "Expresion guardada: " << infija << endl;
+                cout << "Expresión guardada: " << infija << endl;
                 break;
 
             case 2:
-                cout << ">> Conversion a postfija pendiente" << endl;
+                cout << ">> Conversión a postfija pendiente" << endl;
                 break;
 
             case 3:
-                cout << ">> Evaluacion pendiente" << endl;
+                cout << ">> Evaluación pendiente" << endl;
                 break;
 
             case 4:
-                cout << "Expresion infija: " << infija << endl;
-                cout << "Expresion postfija: " << postfija << endl;
+                cout << "Expresión infija: " << infija << endl;
+                cout << "Expresión postfija: " << postfija << endl;
                 break;
 
             case 5:
@@ -57,7 +57,7 @@ int main() {
                 break;
 
             default:
-                cout << "Opcion invalida" << endl;
+                cout << "Opción invalida" << endl;
         }
 
     } while (opcion != 5);
