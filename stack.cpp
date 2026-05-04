@@ -2,29 +2,33 @@
 #include <cstdlib>
 using namespace std;
 
-struct nodopila {
-    char dato;
+struct nodopila
+{
+    int dato;
     struct nodopila *enlace;
 };
 
-void push(struct nodopila **top, char valor) {
+void push(struct nodopila **top, int valor)
+{
     struct nodopila *nuevo;
     nuevo = (struct nodopila *)malloc(sizeof(struct nodopila));
 
-    if (nuevo != NULL) {
+    if (nuevo != NULL)
+    {
         nuevo->dato = valor;
         nuevo->enlace = *top;
         *top = nuevo;
     }
 }
 
-char pop(struct nodopila **top) {
-    if (*top == NULL) return '\0';
+int pop(struct nodopila **top)
+{
+    if (*top == NULL) return 0;
 
     struct nodopila *temp;
     temp = *top;
 
-    char valor = temp->dato;
+    int valor = temp->dato;
     *top = temp->enlace;
 
     free(temp);
