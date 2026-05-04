@@ -2,25 +2,16 @@
 #include <string>
 using namespace std;
 
-// Estructura pila
-struct nodopila {
-    char dato;
-    struct nodopila *enlace;
-};
-
-// Funciones pila
-void push(struct nodopila **top, char valor);
-char pop(struct nodopila **top);
+// Funciones externas
+void convertirPostfija(string infija, string &postfija);
+int evaluarPostfija(string postfija);
 
 int main() {
     int opcion;
 
-    // Variables 
     string infija = "";
     string postfija = "";
-
-    // Pila
-    struct nodopila *pila = NULL;
+    int resultado = 0;
 
     do {
         cout << "\n===== PROYECTO PILAS =====" << endl;
@@ -42,74 +33,18 @@ int main() {
                 break;
 
             case 2:
-                if (infija == "") {
-                    cout << "Primero ingrese una expresión infija" << endl;
-                } else {
-                    postfija = "";
-                    pila = NULL;
-
-                    for (int i = 0; i < infija.length(); i++) {
-                        char c = infija[i];
-
-                        // Número
-                        if (c >= '0' && c <= '9') {
-                            postfija += c;
-                        }
-
-                        // Abrir paréntesis
-                        else if (c == '(') {
-                            push(&pila, c);
-                        }
-
-                        // Cerrar paréntesis
-                        else if (c == ')') {
-                            while (pila != NULL && pila->dato != '(') {
-                                postfija += pop(&pila);
-                            }
-                            if (pila != NULL) pop(&pila); // elimina '('
-                        }
-
-                        // Operadores
-                        else if (c == '+' || c == '-' || c == '*' || c == '/') {
-
-                            while (pila != NULL && pila->dato != '(') {
-
-                                char top = pila->dato;
-
-                                // prioridades
-                                if ((c == '+' || c == '-') &&
-                                    (top == '+' || top == '-' || top == '*' || top == '/')) {
-                                    postfija += pop(&pila);
-                                }
-                                else if ((c == '*' || c == '/') &&
-                                         (top == '*' || top == '/')) {
-                                    postfija += pop(&pila);
-                                }
-                                else {
-                                    break;
-                                }
-                            }
-
-                            push(&pila, c);
-                        }
-                    }
-
-                    // Vaciar pila final
-                    while (pila != NULL) {
-                        postfija += pop(&pila);
-                    }
-
-                    cout << "Expresión postfija: " << postfija << endl;
-                }
+                convertirPostfija(infija, postfija);
                 break;
 
             case 3:
-                cout << ">> Evaluación pendiente" << endl;
+                resultado = evaluarPostfija(postfija);
+                cout << "Resultado: " << resultado << endl;
                 break;
 
             case 4:
                 cout << "Expresión infija: " << infija << endl;
                 cout << "Expresión postfija: " << postfija << endl;
+                cout << "Resultado: " << resultado << endl;
                 break;
 
             case 5:
