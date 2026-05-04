@@ -26,12 +26,11 @@ El proyecto fue desarrollado en **C++** utilizando **memoria dinámica y puntero
 ---
 
 ## Estructura del proyecto
-proyecto-pilas/
-│
-├── main.cpp # Menú principal
-├── funciones.cpp # Conversión y evaluación
-├── stack.cpp # Implementación de la pila
-├── README.md # Documentación
+- proyecto-pilas/
+    - main.cpp # Menú principal
+    - stack.cpp # Implementación de la pila
+    - funciones.cpp # Conversión y evaluación
+    - README.md # Documentación
 
 ## Funcionamiento
 
